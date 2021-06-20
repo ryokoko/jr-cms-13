@@ -6,7 +6,7 @@ exports.connectToDB = () => {
     database += '_test';
   }
   const connectionString =
-    process.env.CONNECTION_STRING || 'mongodb://localhost:27017/' + database;
+    (process.env.CONNECTION_STRING || 'mongodb://localhost:27017/') + database;
   const db = mongoose.connection;
   db.on('connected', () => {
     console.log(`DB connected with ${connectionString}`);
